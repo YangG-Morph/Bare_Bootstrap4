@@ -3,7 +3,7 @@
 #TODO: Add variable for bootstrap_bare
 
 npm install startbootstrap-resume jquery browser-sync gulp gulp-sass merge-stream del popper.js del
-Get-ChildItem node_modules\startbootstrap | Move-Item -Destination .\ -ErrorAction SilentlyContinue
+Get-ChildItem node_modules\startbootstrap-resume | Move-Item -Destination .\ -ErrorAction SilentlyContinue
 npm install
 npm audit fix
 
