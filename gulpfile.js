@@ -5,6 +5,8 @@ const browsersync = require("browser-sync").create();
 const del = require("del");
 const gulp = require("gulp");
 const merge = require("merge-stream");
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
 
 // BrowserSync
 function browserSync(done) {
@@ -33,18 +35,27 @@ function modules() {
   // Bootstrap
   var bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*')
     .pipe(gulp.dest('./vendor/bootstrap'));
+
+  // Prefixer
+  var prefixer = gulp.src('./node_modules/bootstrap/scss/bootstrap.scss')
+  .pipe(autoprefixer())
+  .pipe(sass().on('error', sass.logError))
+  .pipe(gulp.dest('./vendor/bootstrap/css'));
+  // .pipe(browserSync.stream());
+
   // jQuery
   var jquery = gulp.src([
       './node_modules/jquery/dist/*',
       '!./node_modules/jquery/dist/core.js'
     ])
     .pipe(gulp.dest('./vendor/jquery'));
-  return merge(bootstrap, jquery);
+  return merge(bootstrap, jquery, prefixer);
 }
 
 // Watch files
 function watchFiles() {
-  gulp.watch('./node_modules/bootstrap/dist/**/*', modules);
+  // gulp.watch('./scss/**/*.scss', style);
+  gulp.watch('./node_modules/bootstrap/scss/**/*.scss', modules);
   gulp.watch("./**/*.css", browserSyncReload);
   gulp.watch("./**/*.html", browserSyncReload);
 }
