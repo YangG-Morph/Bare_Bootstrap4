@@ -7,4 +7,4 @@ npm install
 npm audit fix
 
 #Set project to open up with Chrome
-((Get-Content -path gulpfile.js) -replace 'port: 3000','port: 3000,\`nbrowser: ["Chrome"]') | Set-Content -Path gulpfile.js
+((Get-Content -path gulpfile.js) -replace 'port: 3000','port: 3000,browser: ["Chrome"]') | Set-Content -Path gulpfile.js
