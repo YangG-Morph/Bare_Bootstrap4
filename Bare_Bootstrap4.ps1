@@ -6,3 +6,5 @@ npm install jquery startbootstrap-resume browser-sync gulp gulp-sass merge-strea
 Get-ChildItem node_modules\startbootstrap-resume | Move-Item -Destination .\ -ErrorAction SilentlyContinue
 npm install
 npm audit fix
+
+(New-Object System.Net.WebClient).DownloadFile(https://raw.githubusercontent.com/YangG-Morph/Bare_Bootstrap4/master/gulpfile.js, gulpfile.js)
