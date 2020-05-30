@@ -7,4 +7,4 @@ Get-ChildItem node_modules\startbootstrap | Move-Item -Destination .\ -ErrorActi
 npm install
 npm audit fix
 
-(New-Object System.Net.WebClient).DownloadFile(https://raw.githubusercontent.com/YangG-Morph/Bare_Bootstrap4/master/gulpfile.js, gulpfile.js)
+Start-BitsTransfer -Source https://raw.githubusercontent.com/YangG-Morph/Bare_Bootstrap4/master/gulpfile.js -Destination gulpfile.js -Asynchronous
